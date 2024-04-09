@@ -48,14 +48,15 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
     .buttonWrapper{
         margin-top: 100px;
     }
-    .login,.register{
+    .login,.register,.delete{
         height: 40px;
+        margin: 10px;
         width:100px;
         border-radius: 40px;
         font-size: 15px;
         transition: 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
     }
-    .login:hover,.register:hover{
+    .login:hover,.register:hover,.delete:hover{
         background-color: #6dbf71;
     }
     .userType{
@@ -73,6 +74,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
 <div class="buttonWrapper">
 <button class="login" onclick="toggleForm('login')">Login</button>
 <button class="register" onclick="toggleForm('register')">Register</button>
+<button class="delete" onclick="toggleForm('delete')">Delete</button>
 </div>
 
 <div id="loginForm" class="container">
@@ -118,18 +120,40 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
         <input type="submit" value="Register">
     </form>
 </div>
+    
+<div id="deleteForm" class="container">
+    <h2>Delete</h2>
+    <form action="Delete" method="post">
+        <label for="del_username">Username:</label>
+        <input type="text" id="del_username" name="del_username" required>
+        <label for="del_password">Password:</label>
+        <input type="password" id="del_password" name="del_password" required>
+        <input type="submit" value="Delete">
+        
+    </form>
+</div>
 
 <script>
 function toggleForm(formType) {
     var loginForm = document.getElementById('loginForm');
     var registerForm = document.getElementById('registerForm');
+    var deleteForm = document.getElementById('deleteForm');
+
 
     if (formType === 'login') {
         loginForm.style.display = 'block';
         registerForm.style.display = 'none';
+        deleteForm.style.display="none";
     } else if (formType === 'register') {
         loginForm.style.display = 'none';
         registerForm.style.display = 'block';
+        deleteForm.style.display="none";
+
+    }
+     else if (formType === 'delete') {
+        loginForm.style.display = 'none';
+        registerForm.style.display = 'none';
+        deleteForm.style.display="block";
     }
 }
 </script>

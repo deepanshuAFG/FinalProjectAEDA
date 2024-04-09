@@ -44,11 +44,10 @@ public class Register extends HttpServlet {
             if (rowsInserted > 0) {
                 // Redirect user based on userType
                 if ("consumer".equals(userType)) {
-                    response.sendRedirect("Consumer.jsp");
+                    response.sendRedirect("Consumers.jsp");
                 } else if ("retailer".equals(userType)) {
-                    response.sendRedirect("Retailer.jsp");
-                } else if ("charitableOrganization".equals(userType)) {
-                    response.sendRedirect("CharitableOrganization.jsp");
+                  } else if ("charitableOrganization".equals(userType)) {
+                    response.sendRedirect("CharitableOrganizations.jsp");
                 } else {
                     response.getWriter().println("Unknown user type");
                 }
