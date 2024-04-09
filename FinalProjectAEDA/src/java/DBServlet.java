@@ -26,6 +26,7 @@ public class DBServlet extends HttpServlet {
 
         Connection connection = null;
         try {
+        	
             // Establish database connection
             Class.forName("com.mysql.cj.jdbc.Driver");
             connection = DriverManager.getConnection(JDBC_URL, USERNAME, PASSWORD);
